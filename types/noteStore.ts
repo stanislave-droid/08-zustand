@@ -1,5 +1,5 @@
-export const initialDraft = {
-  title: "",
-  content: "",
-  tag: "Todo",
-};
+export interface NoteFormValues {
+  title: string;
+  content: string;
+  tag: string;
+}

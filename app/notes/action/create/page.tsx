@@ -16,7 +16,7 @@ export const metadata: Metadata = {
         alt: "NoteHub",
       },
     ],
-    url: `${process.env.NEXT_PUBLIC_URL}/notes/action/create`,
+    url: "https://08-zustand-drab-xi.vercel.app//notes/action/create",
     type: "article",
   },
 };

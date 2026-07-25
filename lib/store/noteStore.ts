@@ -1,18 +1,18 @@
 import { create } from "zustand";
-import { initialDraft } from "@/types/noteStore";
+import { NoteFormValues } from "@/types/noteStore";
 import { persist } from "zustand/middleware";
-
-export interface NoteFormValues {
-  title: string;
-  content: string;
-  tag: string;
-}
 
 interface NoteDraftStore {
   draft: NoteFormValues;
   setDraft: (note: NoteFormValues) => void;
   clearDraft: () => void;
 }
+
+const initialDraft: NoteFormValues = {
+  title: "",
+  content: "",
+  tag: "Todo",
+};
 
 export const useNoteDraftStore = create<NoteDraftStore>()(
   persist(

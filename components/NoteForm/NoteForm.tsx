@@ -3,7 +3,8 @@ import { useId } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
 import { createNote } from "@/lib/api";
-import { NoteFormValues, useNoteDraftStore } from "@/lib/store/noteStore";
+import { useNoteDraftStore } from "@/lib/store/noteStore";
+import { NoteFormValues } from "@/types/noteStore";
 
 interface NoteFormProps {
   onClose: () => void;
