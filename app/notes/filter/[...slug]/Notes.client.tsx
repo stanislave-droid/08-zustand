@@ -28,7 +28,7 @@ export default function NotesClient({ tag }: NotesClientProps) {
   const onPageChange = (nextPage: number) => {
     setCurrentPage(nextPage);
   };
-  const handleOpenModal = () => {
+  const handleOpenCreateNoteForm = () => {
     router.push("/notes/action/create");
   };
 
@@ -43,7 +43,7 @@ export default function NotesClient({ tag }: NotesClientProps) {
   return (
     <main className={css.app}>
       <header className={css.toolbar}>
-        {<SearchBox handleChange={onChange} />}
+        {<SearchBox onChange={onChange} />}
         {data && data.totalPages > 1 && (
           <PaginationClient
             totalPages={data.totalPages}
@@ -52,7 +52,7 @@ export default function NotesClient({ tag }: NotesClientProps) {
           />
         )}
         {
-          <button className={css.button} onClick={handleOpenModal}>
+          <button className={css.button} onClick={handleOpenCreateNoteForm}>
             Create note +
           </button>
         }
