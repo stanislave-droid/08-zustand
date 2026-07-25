@@ -3,35 +3,7 @@ import { useId } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
 import { createNote } from "@/lib/api";
-import { create } from "zustand";
-import { initialDraft } from "@/types/noteStore";
-import { persist } from "zustand/middleware";
-
-interface NoteFormValues {
-  title: string;
-  content: string;
-  tag: string;
-}
-
-interface NoteDraftStore {
-  draft: NoteFormValues;
-  setDraft: (note: NoteFormValues) => void;
-  clearDraft: () => void;
-}
-
-const useNoteDraftStore = create<NoteDraftStore>()(
-  persist(
-    (set) => ({
-      draft: initialDraft,
-      setDraft: (note) => set(() => ({ draft: note })),
-      clearDraft: () => set(() => ({ draft: initialDraft })),
-    }),
-    {
-      name: "note-draft-store",
-      partialize: (state) => ({ draft: state.draft }),
-    },
-  ),
-);
+import { NoteFormValues, useNoteDraftStore } from "@/lib/stores/noteStore";
 
 interface NoteFormProps {
   onClose: () => void;
