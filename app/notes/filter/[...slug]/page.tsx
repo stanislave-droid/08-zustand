@@ -1,4 +1,4 @@
-import { fetchNoteById, fetchNotes } from "@/lib/api";
+import { fetchNotes } from "@/lib/api";
 import {
   dehydrate,
   HydrationBoundary,
@@ -17,12 +17,6 @@ export async function generateMetadata({
 }: NotesParams): Promise<Metadata> {
   const { slug } = await params;
   const tag = slug[0] == "all" ? "all" : (slug[0] as Category);
-  const { notes } = await fetchNotes(
-    1,
-    "",
-    12,
-    slug[0] == "all" ? undefined : (slug[0] as Category),
-  );
 
   return {
     title: `NoteHub | ${tag}`,
